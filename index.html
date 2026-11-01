@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Strumenti Cari: instrumentos musicais e acessórios para músicos.">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/home.css">
+	<script src="./js/script.js" type="module"></script>
+	<title>Strumenti Cari | Instrumentos Musicais</title>
+</head>
+
+<body>
+	<header class="site-header">
+		<div class="top-bar">
+			<p class="top-bar__message">Instrumentos e acessórios para quem vive música.</p>
+			<div class="top-bar__actions">
+				<button type="button" class="top-bar__theme-button" id="theme-toggle" aria-label="Ativar tema escuro"
+					title="Alternar tema">
+					<span aria-hidden="true">☾</span>
+				</button>
+				<button type="button" class="cart-trigger" id="open-cart" aria-label="Abrir carrinho, 0 itens"
+					aria-controls="cart" aria-expanded="false">
+					<span class="cart-trigger__icon" aria-hidden="true">🛒</span>
+					<span class="cart-trigger__label">Carrinho</span>
+					<span class="cart-trigger__count" id="cart-count" aria-hidden="true">0</span>
+				</button>
+			</div>
+		</div>
+		<h1 class="site-title">Strumenti Cari</h1>
+	</header>
+
+	<section id="Hero" aria-labelledby="hero-title">
+		<div class="hero container">
+			<hgroup class="hero__hgroup">
+				<h2 class="hero__h2" id="hero-title">Conheça nossos produtos</h2>
+				<p class="hero__subtitle">Instrumentos de primeira classe, esculpidos para grandes mestres.</p>
+			</hgroup>
+			<a href="#Loja" class="hero__button">Explorar catálogo</a>
+		</div>
+	</section>
+
+	<main class="container">
+		<section id="Loja" aria-labelledby="catalog-title">
+			<h2 id="catalog-title">Nosso catálogo</h2>
+
+			<div id="filter-strip">
+				<nav aria-label="Categorias de produtos">
+					<menu class="filters" id="filters" aria-label="Filtrar produtos por categoria">
+						<li><button class="filters-tag is-active" type="button" data-category="all"
+								aria-pressed="true">Todos</button></li>
+						<li><button class="filters-tag" type="button" data-category="1"
+								aria-pressed="false">Cordas</button></li>
+						<li><button class="filters-tag" type="button" data-category="2"
+								aria-pressed="false">Madeiras</button></li>
+						<li><button class="filters-tag" type="button" data-category="3"
+								aria-pressed="false">Metais</button></li>
+						<li><button class="filters-tag" type="button" data-category="4"
+								aria-pressed="false">Acessórios</button></li>
+					</menu>
+				</nav>
+
+				<div class="search-div">
+					<label class="search-div__label" for="buscar">Buscar:</label>
+					<input class="search-div__input" type="search" name="buscar" id="buscar"
+						placeholder="Pesquisar produtos" autocomplete="off">
+				</div>
+			</div>
+
+			<p class="results-count" id="results-count" aria-live="polite"></p>
+			<div id="article-grid" aria-live="polite">
+				<!-- Os cards de produtos são inseridos pelo JavaScript. -->
+			</div>
+		</section>
+
+		<section class="newsletter-section" aria-labelledby="newsletter-title">
+			<form class="newsletter-form" id="newsletter-form">
+				<hgroup class="newsletter-form__hgroup">
+					<h2 class="newsletter-form__h3" id="newsletter-title">Assine nossa newsletter!</h2>
+					<p class="newsletter-form__p">Promoções e dicas de manutenção de instrumentos, direto no seu e-mail.
+					</p>
+					<p class="newsletter-form__p">Cancele a inscrição quando quiser.</p>
+				</hgroup>
+				<label class="visually-hidden" for="input-email">Seu e-mail</label>
+				<input type="email" class="newsletter-form__input" id="input-email" name="email"
+					placeholder="example@email.com" autocomplete="email" required>
+				<button type="submit" class="newsletter-form__button">Assinar</button>
+			</form>
+		</section>
+	</main>
+
+	<footer>
+		<p class="copyright">© 2026. Strumenti Cari. Todos os direitos reservados.</p>
+	</footer>
+
+	<button class="cart-overlay" id="cart-overlay" type="button" aria-label="Fechar carrinho" hidden></button>
+
+	<aside id="cart" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true"
+		inert>
+		<div class="cart-drawer__header">
+			<div class="cart-drawer__heading">
+				<h2 id="cart-title">Seu carrinho</h2>
+				<p id="cart-items-description">0 produtos</p>
+			</div>
+			<div class="cart-drawer__header-actions">
+				<button type="button" class="cart-clear-button" id="clear-cart">Limpar</button>
+				<button type="button" class="cart-close-button" id="close-cart" aria-label="Fechar carrinho">x</button>
+			</div>
+		</div>
+
+		<div class="cart-drawer__items" id="cart-items" aria-live="polite">
+			<!-- Os itens do carrinho são inseridos pelo JavaScript. -->
+		</div>
+
+		<div class="cart-drawer__summary">
+			<div class="cart-summary__row">
+				<span>Subtotal</span>
+				<span id="cart-subtotal">R$ 0,00</span>
+			</div>
+			<div class="cart-summary__row cart-summary__row--total">
+				<span>Total</span>
+				<strong id="cart-total">R$ 0,00</strong>
+			</div>
+			<button type="button" class="cart-checkout-button" id="finish-order" disabled>
+				Finalizar pedido
+			</button>
+			<p class="cart-drawer__note">Projeto demonstrativo. A finalização não realiza pagamento nem envia um pedido
+				real.</p>
+		</div>
+	</aside>
+
+	<p class="toast" id="toast" role="status" aria-live="polite"></p>
+</body>
+
+</html>
